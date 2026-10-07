@@ -1,0 +1,33 @@
+# SAGE with the Gemma3-27B teacher (Table 2)
+
+defaults:
+  - base_experiment
+  - env: frozenlake_image_big_random
+  - training: ppo_cnn
+  - override training/guidance_model: gemma3-27b
+  - override training/guidance_model/cache: large_cache_guidance_model
+  - override hydra/sweeper: list
+  - _self_
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    # list_params are zipped, grid_params are crossed
+    list_params:
+      env: [frozenlake_image_big_random, ezpoints_image, card_maze_suit_normal, minigrid_fetch_5x5, minigrid_gotodoor_5x5, minigrid_lavagap_s5]
+      training.guidance_model.guidance_threshold: [0.75, 0.75, 0.25, 0.75, 0.75, 0.75] # Table 5
+    grid_params:
+      seed: 1,2,3
+
+exp_name: sage_gemma27
+vlm_guidance: true
+
+training:
+  guidance_model:
+    guidance_type: action
+    cache:
+      cache_size: 10000
+  bc_coef: 1.0
+  bc_schedule: linear
+  awbc_filter: exp
+  awbc_temperature: 0.5

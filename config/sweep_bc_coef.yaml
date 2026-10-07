@@ -1,0 +1,30 @@
+# Sweep of the BC coefficient beta on CardMaze (Table 7)
+
+defaults:
+  - base_experiment
+  - env: card_maze_suit_normal
+  - training: ppo_cnn
+  - override training/guidance_model: qwen3_5-27b-nothink
+  - override hydra/sweeper: list
+  - _self_
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    grid_params:
+      seed: 1,2,3
+      training.bc_coef: 0.0,0.5,1.0,2.0
+
+exp_name: sweep_bc_coef
+vlm_guidance: true
+
+training:
+  guidance_model:
+    guidance_type: action
+    guidance_threshold: 0.25 # Table 7
+    cache:
+      use_cache: false
+  bc_coef: 1.0
+  bc_schedule: linear
+  awbc_filter: exp
+  awbc_temperature: 0.5

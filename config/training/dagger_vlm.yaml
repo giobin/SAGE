@@ -1,0 +1,8 @@
+# DAgger-VLM agent configuration file
+
+defaults:
+  - dagger_vlm_training
+  - agent: ac_cnn_simple
+  - guidance_model/cache: simple_cache_guidance_model
+  - guidance_model: base_guidance_model
+  - _self_

@@ -1,0 +1,12 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/minigrid/fetch
+
+# In minigrid, image_obs refers to only the image, but we have no text/image, so both are the same.
+text_prompt: image_prompt.md
+text_cot_prompt: image_cot_prompt.md
+
+reward_shaping_env_description: "This environment has multiple objects of assorted types and colors. You will receive a mission telling you which object to pick up. Picking up the wrong object terminates the episode with zero reward. \nThe environment is represented as a grid. Black squares represent empty spaces, while grey squares represent walls. The agent is represented by a red triangle, and the direction the agent is facing is indicated by the triangle's point. Objects are solid, the agent cannot pass through them. To pick up an object, the agent must be facing it and use the appropriate action."
+reward_shaping_goal: "pick up the target object"  # overridden at runtime by mission from observation

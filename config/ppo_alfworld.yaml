@@ -1,0 +1,14 @@
+# PPO baseline on ALFWorld (Table 1)
+
+defaults:
+  - base_experiment
+  - env: alfworld
+  - training: ppo_cnn_text
+  - _self_
+
+exp_name: ppo_alfworld
+vlm_guidance: false
+
+training:
+  eval_num_envs: 1
+  eval_episodes: 10

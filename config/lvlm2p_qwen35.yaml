@@ -1,0 +1,29 @@
+# LVLM2P baseline (our re-implementation): distillation of VLM action distributions (Table 1)
+
+defaults:
+  - base_experiment
+  - env: frozenlake_image_big_random
+  - training: ppo_cnn
+  - override training/guidance_model: qwen3_5-27b-nothink
+  - override hydra/sweeper: list
+  - _self_
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    grid_params:
+      seed: 1,2,3
+      env: frozenlake_image_big_random,ezpoints_image,card_maze_suit_normal,minigrid_fetch_5x5,minigrid_gotodoor_5x5,minigrid_lavagap_s5
+
+exp_name: lvlm2p_qwen35
+vlm_guidance: true
+
+training:
+  guidance_model:
+    guidance_type: distribution
+    guidance_threshold: 0.25
+    cache:
+      use_cache: false
+  bc_coef: 1.0
+  bc_schedule: constant
+  awbc_filter: none

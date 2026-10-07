@@ -1,0 +1,11 @@
+# Simple guidance model configuration
+
+defaults:
+  - base_guidance_model
+  - _self_
+
+cache:
+  use_cache: false
+
+model_type: oracle
+model_id: oracle_guidance_model

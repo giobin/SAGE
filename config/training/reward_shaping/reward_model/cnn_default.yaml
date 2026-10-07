@@ -1,0 +1,17 @@
+# Default CNN reward model mirroring the RL-VLM-F implementation
+
+defaults:
+  - _self_
+
+output_size: 1
+conv_kernel_sizes: [5, 3, 3, 3]
+conv_channels: [16, 32, 64, 128]
+conv_strides: [3, 2, 2, 2]
+conv_paddings: [0, 0, 0, 0]
+hidden_sizes: []
+batch_norm_conv: false
+batch_norm_fc: false
+hidden_activation: ReLU
+output_activation: Tanh
+init_w: 0.001
+hidden_init: fanin

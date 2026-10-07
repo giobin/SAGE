@@ -1,0 +1,14 @@
+# FrozenLake environment configuration file
+
+defaults:
+  - base_environment
+  - prompt: prompt_frozenlake
+  - _self_
+
+# Environment settings
+env_id: FrozenLake-v1
+image_obs: false
+
+env_args:
+  map_name: "4x4"
+  is_slippery: false

@@ -1,0 +1,23 @@
+name: sage
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - vllm==0.17.0 # installs a matching torch; Qwen3.5 needs vllm>=0.17
+      - torchvision
+      - transformers
+      - gymnasium[other]==1.1.1
+      - minigrid==3.0.0
+      - hydra-core
+      - hydra-list-sweeper
+      - hydra-submitit-launcher
+      - omegaconf
+      - wandb
+      - cachebox
+      - inflect
+      - networkx
+      - pillow
+      - pyyaml
+      - tqdm

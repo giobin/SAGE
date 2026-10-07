@@ -1,0 +1,7 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/gym_cards/ezpoints
+reward_shaping_env_description: "There will be two poker cards (consider face cards as worth 10), together with a formula written in text in the image, after the word \"Formula:\"."
+reward_shaping_goal: "write a syntactically correct formula that evaluates to 12 using only the numbers given from the cards, once for each, and the + (sum) and * (multiplication) operators. A partial formula is closer to the goal (e.g., \"Formula: 10 +\" is closer than \"Formula: 10\", as only one symbol is missing to reach 12, compared to two symbols). Formulas that can't reach 12 with the symbols left are worse. Incorrectly formed formulas (e.g. \"Formula: + 10 2\") are the worst. Complete formulas should end with the = operator."

@@ -1,0 +1,9 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/gym_cards/card_maze
+
+reward_shaping_env_description: "There are {n_cards} different poker cards at the top of the image. At the bottom of the image, there is a larger poker card which acts as the prompt.\nThe goal determines which card should be selected from the top cards, based on the card shown in the prompt. If a mistake is made, the progress will reset to zero and you will have to start over."
+#reward_shaping_goal: ??? # filled in the correspondig env configuration yaml
+reward_shaping_goal: "you should reward observations where the progress towards the goal (shown in the bottom left in text) is higher"

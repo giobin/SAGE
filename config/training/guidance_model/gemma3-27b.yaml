@@ -1,0 +1,11 @@
+defaults:
+  - base_guidance_model
+  - cache: large_cache_guidance_model
+  - _self_
+
+model_id: "google/gemma-3-27b-it"
+model_args:
+  max_tokens: 2048
+  temperature: 1.0
+  top_p: 0.95
+  top_k: 64

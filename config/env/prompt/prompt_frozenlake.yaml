@@ -1,0 +1,7 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/gymnasium/frozenlake
+reward_shaping_env_description: "You will see a grid-world environment where an elf must navigate to reach a gift box while avoiding holes in the ice."
+reward_shaping_goal: "get the elf as close to the gift box as possible, independently of the path taken or of the configuration of the holes"

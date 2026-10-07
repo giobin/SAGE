@@ -1,0 +1,31 @@
+# RL-VLM-F baseline (our re-implementation): reward model learned from VLM preferences (Table 1)
+
+defaults:
+  - base_experiment
+  - env: frozenlake_image_big_random
+  - training: ppo_cnn
+  - override training/guidance_model: qwen3_5-27b-nothink
+  - override training/guidance_model/cache: large_cache_guidance_model
+  - override hydra/sweeper: list
+  - _self_
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    grid_params:
+      seed: 1,2,3
+      env: frozenlake_image_big_random,ezpoints_image,card_maze_suit_normal,minigrid_fetch_5x5,minigrid_gotodoor_5x5,minigrid_lavagap_s5
+
+exp_name: rl_vlmf_qwen35
+vlm_guidance: true
+
+training:
+  reward_shaping:
+    enabled: true
+    use_pbrs: true
+    reward_model:
+      output_activation: Identity
+  guidance_model:
+    do_policy_guidance: false
+    cache:
+      cache_size: 10000

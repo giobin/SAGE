@@ -1,0 +1,15 @@
+defaults:
+  - base_environment
+  - prompt: prompt_card_maze
+  - _self_
+
+# Environment settings
+env_id: gym_cards/CardMaze-v0
+image_obs: true
+
+env_args:
+  rule: suit       # "number", "suit", "both", "neither", "all" (hardest)
+  progress_style: symbol  # "text", "symbol", "none"
+  n_cards: 4       # number of cards to show at the top
+  n_decisions: 5   # number of correct sequential actions to complete the episode
+  n_confounders: 1 # number of confounder cards (0 for easiest)

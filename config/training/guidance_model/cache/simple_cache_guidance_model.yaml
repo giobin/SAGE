@@ -1,0 +1,7 @@
+# Simple guidance model configuration
+
+defaults:
+  - _self_
+
+use_cache: true
+cache_size: 128

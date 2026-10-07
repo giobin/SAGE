@@ -1,0 +1,21 @@
+# SAGE with the ALFWorld expert planner as teacher (Table 1)
+
+defaults:
+  - base_experiment
+  - env: alfworld
+  - training: ppo_cnn_text
+  - override training/guidance_model: oracle
+  - _self_
+
+exp_name: sage_oracle_alfworld
+vlm_guidance: true
+
+training:
+  guidance_model:
+    guidance_type: action
+    guidance_threshold: 0.25 # Table 5
+  bc_coef: 1.0
+  bc_schedule: linear
+  awbc_filter: none # ALFWorld uses plain BC (Table 5)
+  eval_num_envs: 1
+  eval_episodes: 10

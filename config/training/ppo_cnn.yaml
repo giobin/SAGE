@@ -1,0 +1,11 @@
+# PPO agent configuration file
+
+defaults:
+  - ppo_training
+  - agent: ac_cnn_simple
+  - guidance_model/cache: simple_cache_guidance_model
+  - guidance_model: base_guidance_model
+  - reward_shaping/reward_model: cnn_default
+  - _self_
+
+# Agent settings

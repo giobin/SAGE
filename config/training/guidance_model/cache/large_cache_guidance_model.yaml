@@ -1,0 +1,7 @@
+# Simple guidance model configuration
+
+defaults:
+  - _self_
+
+use_cache: true
+cache_size: 1024 # Bigger cache since we have many options for states + missions

@@ -1,0 +1,10 @@
+# EZPoints environment configuration file
+
+defaults:
+  - base_environment
+  - prompt: prompt_ezpoints
+  - _self_
+
+# Environment settings
+env_id: gym_cards/EZPoints-v0
+image_obs: true

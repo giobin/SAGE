@@ -1,0 +1,11 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/minigrid/lavagap
+
+text_prompt: image_prompt.md
+text_cot_prompt: image_cot_prompt.md
+
+reward_shaping_env_description: "This environment is a grid with a wall of lava blocking the path. There is a gap in the lava wall that the agent must find and navigate through to reach the green goal square. Black squares represent empty spaces, grey squares represent walls, orange/red squares represent lava (stepping on lava terminates the episode with zero reward), and the green square is the goal. The agent is represented by a red triangle, and the direction the agent is facing is indicated by the triangle's point."
+reward_shaping_goal: "avoid the lava and get to the green goal square"

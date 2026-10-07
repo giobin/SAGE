@@ -1,0 +1,11 @@
+defaults:
+  - base_prompt
+  - _self_
+
+prompts_path: data/prompts/minigrid/gotodoor
+
+text_prompt: image_prompt.md
+text_cot_prompt: image_cot_prompt.md
+
+reward_shaping_env_description: "This environment is a grid room with 4 colored doors placed on the walls. The agent must navigate to the door specified in the mission and face it, then use the 'done' action to complete the episode. Black squares represent empty spaces, grey squares represent walls, and colored rectangles on walls represent doors. The agent is represented by a red triangle, and the direction the agent is facing is indicated by the triangle's point."
+reward_shaping_goal: "navigate to and face the target door"  # overridden at runtime by mission from observation

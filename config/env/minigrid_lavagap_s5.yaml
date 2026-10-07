@@ -1,0 +1,9 @@
+defaults:
+  - base_environment
+  - prompt: prompt_lavagap
+  - _self_
+
+env_id: MiniGrid-LavaGapS5-v0
+image_obs: false
+env_args:
+  tile_size: 50

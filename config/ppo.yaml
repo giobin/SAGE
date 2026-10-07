@@ -1,0 +1,18 @@
+# PPO baseline (Table 1)
+
+defaults:
+  - base_experiment
+  - env: frozenlake_image_big_random
+  - training: ppo_cnn
+  - override hydra/sweeper: list
+  - _self_
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    grid_params:
+      seed: 1,2,3
+      env: frozenlake_image_big_random,ezpoints_image,card_maze_suit_normal,minigrid_fetch_5x5,minigrid_gotodoor_5x5,minigrid_lavagap_s5
+
+exp_name: ppo
+vlm_guidance: false

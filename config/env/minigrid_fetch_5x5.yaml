@@ -1,0 +1,13 @@
+# MiniGrid Fetch environment configuration file
+
+defaults:
+  - base_environment
+  - prompt: prompt_fetch
+  - _self_
+
+# Environment settings
+env_id: MiniGrid-Fetch-5x5-N2-v0
+image_obs: false # for minigrid, this flag set to true will only return the image observations, not the mission and direction
+env_args:
+  tile_size: 50 # Size of the tiles in the MiniGrid environment for the image observations (one tile is 5 pixels, so tile_size 50 = a 250x250 image)
+  

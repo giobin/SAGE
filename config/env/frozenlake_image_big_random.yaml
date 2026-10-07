@@ -1,0 +1,13 @@
+# FrozenLake environment configuration file
+
+defaults:
+  - frozenlake
+  - _self_
+
+# Environment settings
+image_obs: true
+
+env_args:
+  map_name: "8x8"
+  random_map_dimension: 8  # Custom argument to generate a random 8x8 map
+  is_slippery: false

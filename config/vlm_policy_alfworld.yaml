@@ -1,0 +1,19 @@
+# Gemma3-27B as a zero-shot policy on ALFWorld (Table 1)
+# Run with: python -m src.eval_vlm -cn vlm_policy_alfworld
+
+defaults:
+  - base_experiment
+  - env: alfworld
+  - training: ppo_cnn_text
+  - override training/guidance_model: gemma3-27b
+  - _self_
+
+exp_name: vlm_policy_alfworld
+vlm_guidance: true
+
+training:
+  guidance_model:
+    guidance_type: action
+    cache:
+      cache_size: 10000
+  eval_episodes: 10

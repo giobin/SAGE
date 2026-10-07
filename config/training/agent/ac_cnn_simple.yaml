@@ -1,0 +1,7 @@
+# Simple CNN agent configuration for Actor-Critic methods (PPO)
+
+defaults:
+  - ac_cnn_agent
+  - _self_
+
+# Agent settings
