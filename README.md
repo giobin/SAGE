@@ -122,9 +122,9 @@ python scripts/summarize_results.py multirun/
 ## Citation
 
 ```bibtex
-@inproceedings{merler2026sage,
+@inproceedings{bonetta2026sage,
   title     = {Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect {VLM} Teachers},
-  author    = {Merler, Matteo and Bonetta, Giovanni and Zago, Davide and Cancelliere, Rossella and Magnini, Bernardo},
+  author    = {Bonetta, Giovanni and Merler, Matteo and Zago, Davide and Cancelliere, Rossella and Magnini, Bernardo},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
   year      = {2026}
 }
